@@ -6,7 +6,10 @@ Streamledge loads a local flask web server (~30 MB of memory) in the background 
 
 ## Installation
 
-#### 1. Register Application on Twitch
+#### 1. Download Application
+Download the latest Streamledge version from [Releases](https://github.com/Blasman/Streamledge/releases) and extract the files to a desired location. Alternatively, you may instead use the python scripts if you know what are you doing.
+
+#### 2. Register Application on Twitch
 1. Navigate to [Twitch Developer Console - Register Your Application](https://dev.twitch.tv/console/apps/create)
 2. Provide application details:
    - **Application Name**: `Streamledge` (or custom name)
@@ -16,7 +19,7 @@ Streamledge loads a local flask web server (~30 MB of memory) in the background 
    - `Client ID` (public identifier)
    - `Client Secret` (keep this private)
 
-#### 2. Configure Application
+#### 3. Configure Application
 Edit `config.ini` in your Streamledge directory:
 
 ```ini
