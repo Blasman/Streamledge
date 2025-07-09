@@ -7,7 +7,7 @@ Streamledge loads a local flask web server (~30 MB of memory) in the background 
 ## Installation
 
 #### 1. Download Application
-Download the latest Streamledge version from [Releases](https://github.com/Blasman/Streamledge/releases) and extract the files to a desired location. Alternatively, you may instead use the python scripts if you know what are you doing.
+Download the latest Streamledge version from [Releases](https://github.com/Blasman/Streamledge/releases) and extract the files to a desired location.
 
 #### 2. Register Application on Twitch
 1. Navigate to [Twitch Developer Console - Register Your Application](https://dev.twitch.tv/console/apps/create)
@@ -101,3 +101,7 @@ For YouTube, you can create a `/yt` command to open YouTube ID's/URL's pasted in
 In the same "Other - Commands" menu where the streamledge alias was created, add an alias for YouTube as well:
 
 `/yt $(_streamledge_) --yt $$1`
+
+## Compiling Python Scripts
+
+If you would prefer to compile the python scripts yourself, first install required packages with `pip install -r requirements.txt` and then run `build.bat` (for Windows OS) or `build.sh` (other OS - untested).
