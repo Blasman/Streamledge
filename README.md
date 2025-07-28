@@ -1,5 +1,7 @@
 # Streamledge
 
+**NOTICE:** This project is currently being re-written with more features. Stay tuned!
+
 Streamledge is a command line utility to launch the live stream or the most recent VOD of a specified Twitch user in a **minimal** chromium based web browser (default is Edge) "app" window. It also supports YouTube Video ID's/URL's.
 
 Streamledge loads a local flask web server (~30 MB of memory) in the background when first ran. This allows Streamledge to automatically modify the titlebar info of the web browser window to display the Twitch user's display name instead of the default "Twitch" title. Streamledge also sets the loading **position** and **size** of the web browser window to a user-defined setting.
