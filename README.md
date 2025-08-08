@@ -1,6 +1,6 @@
 # Streamledge
 
-**NOTICE:** This project is currently being re-written with more features. Stay tuned!
+**UPDATE [2025_08_07]:** This project is currently being re-written with more features such as youtube searches, playlists, autoplay videos, autoclose videos, no need for silly API keys, far more options and easier setup, a browser extension to launch Streamledge from YouTube/Twitch links in your browser, etc. Rather than update this repo, I feel the newer future version is deserving of it's own new repo. Therefor, I will be deleteing this repo shortly and creating it again under the same name. Bookmark this page. Stay tuned!
 
 Streamledge is a command line utility to launch the live stream or the most recent VOD of a specified Twitch user in a **minimal** chromium based web browser (default is Edge) "app" window. It also supports YouTube Video ID's/URL's.
 
