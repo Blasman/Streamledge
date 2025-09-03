@@ -1,0 +1,26 @@
+# Ignore Python bytecode and cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Generated files
+*-user-data/
+logs/
+
+# VSCode and IDE settings
+.vscode/
+.idea/
+
+# Virtual environments
+env/
+venv/
+*.env
+
+# Build artifacts
+build/
+dist/
+*.egg-info
+
+# OS files
+.DS_Store
+Thumbs.db

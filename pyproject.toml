@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "streamledge_temp"
+version = "0.1.0"
+description = "A command line YouTube and Twitch.tv player"
+authors = [{ name = "Blasman" }]
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+keywords = ["youtube", "twitch", "cli", "player", "stream", "video", "kick"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Environment :: Console",
+    "Intended Audience :: End Users/Desktop",
+    "Topic :: Multimedia :: Video",
+    "Topic :: Utilities"
+]
+dependencies = [
+    "platformdirs==4.4.0",
+    "Flask==3.1.1",
+    "curl-cffi==0.12.0"
+]
+
+[project.urls]
+Homepage = "https://github.com/Blasman/Streamledge_temp"
+Source = "https://github.com/Blasman/Streamledge_temp"
+
+[project.scripts]
+streamledge = "streamledge.main:main"
+streamledge_server = "streamledge_server.main:main"
+sl = "streamledge.main:main"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["src"]

@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 140" role="img" aria-label="Streamledge logo">
+  <defs>
+    <style type="text/css"><![CDATA[
+      :root{
+        --word-fill: #111111;
+        --tag-fill: #333333;
+        --stroke-color: rgba(0,0,0,0.16);
+      }
+      @media (prefers-color-scheme: dark) {
+        :root{
+          --word-fill: #ffffff;
+          --tag-fill: #f7f7f7;
+          --stroke-color: rgba(0,0,0,0.12);
+        }
+      }
+      .word { fill: var(--word-fill); stroke: var(--stroke-color); stroke-width: 1; paint-order: stroke fill; font-weight:700; }
+      .tag  { fill: var(--tag-fill); stroke: var(--stroke-color); stroke-width: 0.6; paint-order: stroke fill; font-weight:600; }
+    ]]></style>
+     <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+       <stop offset="0" stop-color="#32c8f4"/>
+       <stop offset="1" stop-color="#1092c6"/>
+     </linearGradient>
+     <filter id="s" x="-50%" y="-50%" width="200%" height="200%">
+       <feOffset dx="0" dy="6" in="SourceAlpha" result="o"/>
+       <feGaussianBlur in="o" stdDeviation="6" result="b"/>
+       <feColorMatrix in="b" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.18 0" result="shadow"/>
+       <feMerge><feMergeNode in="shadow"/><feMergeNode in="SourceGraphic"/></feMerge>
+     </filter>
+   </defs>
+
+  <!-- rounded icon -->
+  <g transform="translate(16,8)">
+    <rect x="0" y="0" width="112" height="112" rx="18" fill="url(#g)" filter="url(#s)"/>
+    <!-- play triangle -->
+    <polygon points="44,30 84,56 44,82" fill="#ffffff" opacity="0.98"/>
+    <!-- stream curves (accent) - purple, two thicker squiggles -->
+    <g stroke="#9b59ff" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M90 28 C108 44, 108 64, 90 80" stroke-opacity="0.95"/>
+      <path d="M96 24 C120 44, 120 64, 96 100" stroke-opacity="0.8"/>
+    </g>
+  </g>
+
+  <!-- wordmark (improved contrast: white fill + faint dark stroke) -->
+  <g transform="translate(152,84)">
+    <text x="0" y="0" class="word"
+          font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif"
+          font-size="36">Streamledge</text>
+  </g>
+ 
+   <!-- tagline (moved/anchored) -->
+  <g transform="translate(152,98)">
+    <text x="0" y="0" class="tag" dominant-baseline="text-before-edge"
+          font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif"
+          font-size="16">YouTube and Twitch Unleashed</text>
+  </g>
+ </svg>

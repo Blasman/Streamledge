@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "Streamledge",
+  "version": "2025.08.31",
+  "permissions": [
+    "contextMenus"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "icons": {
+    "128": "assets/streamledge_icon_128.png"
+  }
+}

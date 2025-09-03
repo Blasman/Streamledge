@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img" aria-label="Streamledge icon">
+  <defs>
+    <!-- background gradient -->
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#32c8f4"/>
+      <stop offset="1" stop-color="#1092c6"/>
+    </linearGradient>
+
+    <!-- subtle white outer glow for dark backgrounds -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4" result="blur"/>
+      <feFlood flood-color="#ffffff" flood-opacity="0.12" result="flood"/>
+      <feComposite in="flood" in2="blur" operator="in" result="glow"/>
+      <feMerge><feMergeNode in="glow"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <!-- small soft shadow for contrast (very subtle) -->
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feOffset dx="0" dy="2" result="off"/>
+      <feGaussianBlur in="off" stdDeviation="2" result="blur2"/>
+      <feColorMatrix in="blur2" type="matrix" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0   0 0 0 0.08 0" result="shadow"/>
+      <feMerge><feMergeNode in="shadow"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- use more of the 128x128 canvas while preserving artwork proportions:
+       translate by 8px and scale inner artwork to fill a 112x112 area (maintains original shapes) -->
+  <g transform="translate(8,8) scale(1.1666666667)">
+    <!-- rounded square background (original artwork 96x96, scaled to ~112x112) -->
+    <rect x="0" y="0" width="96" height="96" rx="16" ry="16" fill="url(#bg)" filter="url(#softShadow)"/>
+    <!-- apply faint glow to overlays so icon works on dark backgrounds -->
+    <g filter="url(#glow)">
+      <!-- white play triangle (original coordinates preserved) -->
+      <polygon points="34,26 66,48 34,70" fill="#ffffff" />
+      <!-- two purple squiggles -->
+      <g stroke="#9b59ff" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M78 28 C90 40, 90 56, 78 72" stroke-opacity="0.95"/>
+        <path d="M84 24 C104 40, 104 56, 84 88" stroke-opacity="0.8"/>
+      </g>
+    </g>
+  </g>
+</svg>

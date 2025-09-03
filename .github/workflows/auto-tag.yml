@@ -1,0 +1,87 @@
+name: Auto-tag release from pyproject
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'pyproject.toml'
+
+permissions:
+  contents: write
+
+jobs:
+  create-tag:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Read version from pyproject.toml
+        id: get_version
+        run: |
+          python - <<'PY'
+          import sys, tomllib, pathlib
+          p = pathlib.Path('pyproject.toml')
+          if not p.exists():
+              print("::error::pyproject.toml not found")
+              sys.exit(1)
+          data = tomllib.loads(p.read_text(encoding='utf-8'))
+          ver = data.get('project', {}).get('version')
+          if not ver:
+              print("::error::Could not parse version from pyproject.toml")
+              sys.exit(1)
+          print(f"Found version: {ver}")
+          print(f"version={ver}")
+          PY
+          # capture python prints into outputs
+        shell: bash
+
+      - name: Set version output
+        id: set_version
+        if: always()
+        run: |
+          # read last printed "version=..." line from the job logs via the previous step output is not available here;
+          # Instead re-parse to ensure we have output for later steps
+          VER=$(python - <<'PY'
+          import tomllib, pathlib
+          p = pathlib.Path('pyproject.toml')
+          data = tomllib.loads(p.read_text(encoding='utf-8'))
+          ver = data.get('project', {}).get('version')
+          if not ver:
+              raise SystemExit(1)
+          print(ver)
+          PY)
+          echo "version=$VER" >> $GITHUB_OUTPUT
+
+      - name: Check tag exists on remote
+        run: |
+          VER=${{ steps.set_version.outputs.version }}
+          echo "Checking for tag: $VER"
+          git fetch --tags
+          if git ls-remote --tags origin | awk '{print $2}' | grep -q "refs/tags/$VER$"; then
+            echo "Tag $VER already exists on remote; skipping tag creation."
+            exit 0
+          fi
+
+      - name: Create and push tag
+        if: steps.set_version.outputs.version != ''
+        env:
+          REPO_PAT: ${{ secrets.REPO_PAT }}
+        run: |
+          set -e
+          VER=${{ steps.set_version.outputs.version }}
+          echo "Creating tag $VER"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git tag -a "$VER" -m "Release $VER"
+          if [ -n "$REPO_PAT" ]; then
+            echo "Pushing tag using REPO_PAT (will trigger other workflows)."
+            git remote set-url origin https://x-access-token:${REPO_PAT}@github.com/${GITHUB_REPOSITORY}.git
+            git push origin "$VER"
+          else
+            echo "REPO_PAT secret not found. Pushing with default credentials (GITHUB_TOKEN) — note: pushes made with GITHUB_TOKEN do NOT trigger downstream workflows."
+            git push origin "$VER"
+          fi

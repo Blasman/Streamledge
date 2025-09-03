@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{{ player_title }}</title>
+    <link rel="icon" href="{{ url_for('static', filename=icon_file) }}">
+    <script>
+        // Execute window positioning immediately
+        {
+            const TARGET_X = {{ x_pos }};
+            const TARGET_Y = {{ y_pos }};
+            const TARGET_WIDTH = {{ width }};
+            const TARGET_HEIGHT = {{ height }};
+
+            try {
+                window.resizeTo(TARGET_WIDTH, TARGET_HEIGHT);
+                window.moveTo(TARGET_X, TARGET_Y);
+                window.focus();
+            } catch (e) {
+                console.warn('Window resize/move blocked by browser:', e);
+            }
+        }
+    </script>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background: #000;
+            height: 100%;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <iframe
+        src="{{ player_url }}"
+        allow="autoplay; fullscreen"
+        allowfullscreen="true"
+        scrolling="no"
+        frameborder="0"
+        title="{{ player_title }}">
+    </iframe>
+</body>
+</html>
