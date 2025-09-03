@@ -3,7 +3,7 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "streamledge_temp"
+name = "streamledge"
 version = "0.1.0"
 description = "A command line YouTube and Twitch.tv player"
 authors = [{ name = "Blasman" }]
@@ -31,8 +31,8 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/Blasman/Streamledge_temp"
-Source = "https://github.com/Blasman/Streamledge_temp"
+Homepage = "https://github.com/Blasman/Streamledge"
+Source = "https://github.com/Blasman/Streamledge"
 
 [project.scripts]
 streamledge = "streamledge.main:main"
