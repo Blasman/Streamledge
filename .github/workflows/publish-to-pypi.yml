@@ -4,9 +4,16 @@ on:
   push:
     tags:
       - '*.*.*'
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Tag (X.Y.Z) to publish'
+        required: true
+        type: string
 
 permissions:
   contents: read
+  id-token: write
   packages: write
 
 jobs:
@@ -25,7 +32,15 @@ jobs:
 
       - name: Verify tag matches pyproject version
         run: |
+          # Determine tag from ref (push) or workflow input (dispatch)
           TAG=${GITHUB_REF#refs/tags/}
+          if [ -z "$TAG" ] || [ "$TAG" = "$GITHUB_REF" ]; then
+            TAG="${{ github.event.inputs.tag }}"
+          fi
+          if [ -z "$TAG" ]; then
+            echo "::error::No tag provided. Trigger via tag push or provide 'tag' input for workflow_dispatch."
+            exit 1
+          fi
           echo "Tag: $TAG"
           PYV=$(grep -E '^version\s*=\s*"' pyproject.toml | head -1 | sed -E 's/.*"([^"]+)".*/\1/')
           echo "pyproject version: $PYV"
