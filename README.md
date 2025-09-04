@@ -20,7 +20,7 @@ Streamledge works by loading a lightweight (~30MB RAM) local flask web server in
 - [Configure Application](#recommended---configure-application)
 - [Usage / Command Line Arguments](#usage--command-line-arguments)
   - [YouTube](#youtubecom)
-  - [Twitch.tv](#twitchtv)
+  - [Twitch.tv](#twitchtv-1)
 - [Browser Extension](#browser-extension)
 - [Chatty Integration](#chatty-integration)
 
