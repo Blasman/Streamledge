@@ -9,6 +9,22 @@ Streamledge is a command-line tool for playing YouTube and Twitch.tv videos.
 Streamledge works by loading a lightweight (~30MB RAM) local flask web server in the background when first ran. This allows Streamledge to be ran with command line arguments that utilize the server to embed and play videos in a **minimal** [Chromium-based web browser](https://en.wikipedia.org/wiki/Chromium_(web_browser)#Browsers_based_on_Chromium) `--app` window.
 
 
+## Table of Contents
+
+- [Usage Examples](#usage-examples)
+  - [YouTube](#youtube)
+  - [Twitch.tv](#twitchtv)
+- [Installation](#installation)
+  - [Windows Installation](#-windows-installation)
+  - [Linux/MacOS Installation](#-linuxmacos-installation)
+- [Configure Application](#recommended---configure-application)
+- [Usage / Command Line Arguments](#usage--command-line-arguments)
+  - [YouTube](#youtubecom)
+  - [Twitch.tv](#twitchtv)
+- [Browser Extension](#browser-extension)
+- [Chatty Integration](#chatty-integration)
+
+
 # Usage Examples
 
 ### YouTube
