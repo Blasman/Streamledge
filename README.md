@@ -555,7 +555,9 @@ Streamledge includes a web browser extension for chromium based web browsers tha
 
 You will obviously need to have the `streamledge_server` process running (by using `--start` or by playing a video with Streamledge first) for the menu options to function.
 
-Until the extension is available via the Chrome/Edge web stores, you will need to enable developer mode in your browser and load unpacked extension from the [streamledge_browser_extension](/streamledge_browser_extension) folder. Slow one minute tutorial here: https://www.youtube.com/watch?v=AnvFyHUQw9M&t=5s
+The Chrome extension [is available via the Chrome web store](https://chromewebstore.google.com/detail/streamledge/feedblncjcfcopgcemmaghneeaifaalp).
+
+For other Chromium based browsers, you will need to enable developer mode in your browser and load unpacked extension from the [streamledge_browser_extension](/streamledge_browser_extension) folder. Slow one minute tutorial here: https://www.youtube.com/watch?v=AnvFyHUQw9M&t=5s
 
 YouTube screenshot of Streamledge context menu in Chrome:
 
