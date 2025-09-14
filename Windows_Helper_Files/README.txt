@@ -1,7 +1,3 @@
-AHK Files:
-
-FreeTube-to-Streamledge.ahk :: An AutoHotkey (v1.1) Script to allow opening Streamledge from within FreeTube via the "Copy Invidious Link" context menu item
-
 BAT Files:
 
 These files can be useful for double clicking in Windows rather than having to (keep) open a command prompt.

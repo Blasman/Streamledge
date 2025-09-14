@@ -23,6 +23,7 @@ Streamledge works by loading a lightweight (~30MB RAM) local flask web server in
   - [Twitch.tv](#twitchtv-1)
 - [Browser Extension](#web-browser-extension)
 - [Chatty Integration](#chatty-integration)
+- [FreeTube Integration](#freetube-integration)
 
 
 # Usage Examples
@@ -619,6 +620,6 @@ In the same "Other - Commands" menu where the streamledge alias was created, you
 Usage example: `/yt rick roll`
 
 
-# FreeTube "Integration" (Windows OS)
+# FreeTube "Integration"
 
-Included on this repository is [a basic AutoHotkey (v1.1) script](Windows_Helper_Files/FreeTube-to-Streamledge.ahk) that when used with [FreeTube](https://github.com/FreeTubeApp/FreeTube) it will effectively turn the "Copy Invidious Link" context menu item into a Streamledge launcher for the linked video/playlist.
+You can also use Streamledge with [FreeTube](https://github.com/FreeTubeApp/FreeTube) so that you can have an ad-free external player that does not wait for ad-roll time to finish before playing the video because there are **no ads** served when using YouTube's embedded player. Simply choose one of FreeTube's external players with no extra arguments (ie 'clapper'), set the Custom External Player Executable to `streamledge` and set the Custom External Player Argument to `--yt` (this will also play playlists). Streamledge was refused by the FreeTube developer as an external player option but this method will work exactly the same as if it were implemented.
